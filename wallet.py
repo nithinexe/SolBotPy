@@ -30,33 +30,33 @@ def create_account(sender_username):
         print('error:', e)
         return None
     
-# def load_wallet(sender_username):
-#     try:
-#         file_name = '{}.txt'.format(sender_username)
-#         with open(file_name) as json_file:
-#             data = json.load(json_file)
-#             return data
-#     except Exception as e:
-#         print('error:', e)
-#         return None
+def load_wallet(sender_username):
+    try:
+        file_name = '{}.txt'.format(sender_username)
+        with open(file_name) as json_file:
+            data = json.load(json_file)
+            return data
+    except Exception as e:
+        print('error:', e)
+        return None
  
-# def fund_account(sender_username, amount):
-#     try:
-#         amount = int(1000000000 * amount)
-#         account = load_wallet(sender_username)
-#         resp = solana_client.request_airdrop(
-#             account['public_key'], amount)   
-#         print(resp)    
+def fund_account(sender_username, amount):
+    try:
+        amount = int(1000000000 * amount)
+        account = load_wallet(sender_username)
+        resp = solana_client.request_airdrop(
+            account['public_key'], amount)   
+        print(resp)    
 
-#         transaction_id = resp['result']
-#         if transaction_id != None:
-#             return transaction_id
-#         else:
-#             return None
+        transaction_id = resp['result']
+        if transaction_id != None:
+            return transaction_id
+        else:
+            return None
 
-#     except Exception as e:
-#         print('error:', e)
-#         return None
+    except Exception as e:
+        print('error:', e)
+        return None
     
 
        
